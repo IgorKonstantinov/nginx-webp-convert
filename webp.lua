@@ -12,8 +12,8 @@ end
 
 -- Convert JPG|PNG -> WEBP & Generate .webp.info (DateTime + Size | 20201210 4044441) & Return Generated .webp file
 function convert()
-  os.execute('cwebp -q ' .. cf .. ' ' .. image .. ' -o ' .. webp)
-  os.execute("stat -c '%y %s' " .. image ..  " | awk '{ print $1, $4 }' | sed 's/-//g' > " .. info)
+  os.execute('cwebp -q ' .. cf .. ' ' .. '"'..image..'"' .. ' -o ' .. '"'..webp..'"')
+  os.execute("stat -c '%y %s' " .. '"'..image..'"' ..  " | awk '{ print $1, $4 }' | sed 's/-//g' > " .. '"'..info..'"')
   ngx.exec(ngx.var.uri .. '.webp')
 end
 
