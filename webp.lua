@@ -1,6 +1,6 @@
 -- Vars
 local cf    = 80                       -- Compression Factor [0 - 100]
-local image = ngx.var.request_filename -- NGINX Requested File .jpg
+local image = string.gsub(ngx.var.request_filename, "%%20", " ") -- NGINX Requested File .jpg
 local webp  = image .. '.webp'         --       Requested File .jpg.webp
 local info  = webp .. '.info'          --       Requested File .jpg.webp.info
 
